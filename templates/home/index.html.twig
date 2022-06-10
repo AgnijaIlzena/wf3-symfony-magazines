@@ -1,0 +1,47 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block stylesheets %}
+    <!-- CSS Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">       
+{% endblock %}
+
+{% block body %}
+<h1 class="m-5">List of Magazines</h1>
+
+<div>
+<a class="btn btn-success ms-5 mb-5" href="{{ path('app_magazine_new') }}">  Nouveau magazine   </a>
+<a class="btn btn-light ms-5 mb-5" href="{{ path('app_category') }}">  All categories   </a>
+</div>
+
+
+    {# Affichage message flash #}
+    {% for message in app.flashes('success') %}
+    <div class="alert alert-success">
+        {{ message }}
+    </div>
+    {% endfor %}
+
+<table class="table m-5 w-50">
+    <thead>
+        <tr>       
+            <th> Name </th>
+            <th> Details </th>
+        </tr>
+    </thead>
+
+    <tbody>
+     {% for magazine in magazines %}
+        <tr>       
+            <td>{{magazine.name}} </td>
+            <td><a class="btn btn-light" href="{{ path('app_magazine', {id: magazine.id} ) }}">  Voir plus de détails…  </a></td>
+      
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %} 

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block stylesheets %}
+    <!-- CSS Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">       
+{% endblock %}
+
+{% block body %}
+<h1 class="m-5">Magazine: {{magazine.name}}</h1>
+
+
+<table class="table m-5 w-25">
+<tbody>
+    <tr>
+        <td>Title:</td>
+        <td>{{magazine.name}}</td>   
+    </tr>
+    <tr>
+        <td>Price:</td>
+        <td>{{magazine.price}} &euro;</td>
+    </tr>
+    <tr>
+            <td>Issue date:</td>
+        <td>{{ magazine.createdAt|date('d.m.Y') }}</td>
+    </tr>
+
+        <tr>
+            <td>Category:</td>
+        <td style="color: {{magazine.category.color}};">{{ magazine.category.name }}</td>
+    </tr>
+</tbody>
+</table>
+
+
+<div class="m-5">
+<a class="link-back" href="{{ path('app_home') }}">Go back to Home</a>
+</div>
+
+{% endblock %}

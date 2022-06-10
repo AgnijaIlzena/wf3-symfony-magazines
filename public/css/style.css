@@ -1,0 +1,20 @@
+
+.btn:hover {
+    background-color: darkgrey;
+}
+
+.link-back {
+    font-size: 0.9rem;
+    color: grey;
+    text-decoration: none;
+}
+
+.link-back:hover {
+    color: black;
+}
+
+.pill {
+    width: 10px;
+}
+
+

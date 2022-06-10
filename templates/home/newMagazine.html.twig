@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CategoryController!{% endblock %}
+{% block stylesheets %}
+    <!-- CSS Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">       
+{% endblock %}
+
+{% block body %}
+
+
+<div class="w-50 mx-auto py-5">
+
+<h2 class="my-5">Creé nouveau magazine</h2>
+
+    {# Affichage message flash #}
+    {% for message in app.flashes('success') %}
+    <div class="alert alert-success">
+        {{ message }}
+    </div>
+    {% endfor %}
+
+        {{ form_start(form) }}
+            <div class="mb-3">
+                    {{ form_label(form.name) }}
+                    {{ form_widget(form.name) }}
+                    {{ form_errors(form.name) }}
+
+                    {{ form_label(form.price) }}
+                    {{ form_widget(form.price) }}
+                    {{ form_errors(form.price) }}
+
+            </div>
+         
+      {{ form_end(form) }} 
+
+<a class="btn btn-light my-5 " href="{{ path('app_category') }}">  Back to all categories   </a>
+
+</div>
+
+{% endblock %} 
